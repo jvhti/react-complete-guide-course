@@ -22,6 +22,15 @@ class App extends Component {
     this.setState({ showPersons: !this.state.showPersons });
   };
 
+  nameChangedHandler = (ev, id) => {
+    const persons = [...this.state.persons];
+
+    persons.find((p) => p.id === id)
+        .name = ev.target.value;
+
+    this.setState({persons});
+  };
+
   render() {
     const buttonStyle = {
       backgroundColor: 'white',
@@ -40,7 +49,8 @@ class App extends Component {
                 (person, index) =>
                   <Person key={person.id}
                       name={person.name} age={person.age}
-                      click={() => this.deletePersonHandler(index)}/>
+                      click={() => this.deletePersonHandler(index)}
+                      changed={(ev) => this.nameChangedHandler(ev,  person.id)}/>
                 )}
           </div>
       );
