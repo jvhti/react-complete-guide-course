@@ -23,10 +23,10 @@ const cockpit = (props) => {
 
   const paragraphClasses = [];
 
-  if (props.persons.length <= 2)
+  if (props.personsLength <= 2)
     paragraphClasses.push(classes.red);
 
-  if (props.persons.length <= 1)
+  if (props.personsLength <= 1)
     paragraphClasses.push(classes.bold);
 
   return (
@@ -38,4 +38,4 @@ const cockpit = (props) => {
       </div>);
 };
 
-export default cockpit;
+export default React.memo(cockpit);
