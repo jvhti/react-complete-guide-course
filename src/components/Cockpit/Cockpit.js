@@ -1,12 +1,13 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import classes from "./Cockpit.css";
 
 const cockpit = (props) => {
+  const toggleButtonRef = useRef(null);
+
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
-    setTimeout(() => {
-      alert("Saved data to cloud!");
-    }, 1000);
+
+    toggleButtonRef.current.click();
 
     return () => {
       // Clean up function
@@ -34,7 +35,7 @@ const cockpit = (props) => {
         <h1>{props.title}</h1>
         <p className={paragraphClasses.join(' ')}>This is really working!</p>
         <button className={props.showPersons ? classes.Red : null}
-                onClick={props.clicked}>Toggle Persons</button>
+                onClick={props.clicked} ref={toggleButtonRef}>Toggle Persons</button>
       </div>);
 };
 
