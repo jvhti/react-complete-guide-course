@@ -4,13 +4,17 @@ import classes from './Person.css';
 import withClass from "../../../hoc/withClass";
 
 class Person extends Component{
+  componentDidMount() {
+    this.inputElement.focus();
+  }
+
   render() {
     console.log('[Person.js] rendering...');
     return (
         <React.Fragment>
           <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old!</p>
           <p>{this.props.children}</p>
-          <input type="text" onChange={this.props.changed} value={this.props.name}/>
+          <input ref={(inputEl) => {this.inputElement = inputEl;}} type="text" onChange={this.props.changed} value={this.props.name}/>
           <div style={{display: 'none'}}>On the same level of person</div>
         </React.Fragment>
     );
