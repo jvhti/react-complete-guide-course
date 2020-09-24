@@ -31,6 +31,15 @@ class App extends Component {
     console.log('[App.js] component did mount');
   }
 
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log('[App.js] shouldComponentUpdate', nextProps, nextState, nextContext);
+    return true;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('[App.js] componentDidUpdate', prevProps, prevState, snapshot);
+  }
+
   deletePersonHandler = (index) => {
     const persons = [...this.state.persons]; // or use slice() to copy
     persons.splice(index, 1);
