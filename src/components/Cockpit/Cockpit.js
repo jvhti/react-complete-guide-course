@@ -7,7 +7,19 @@ const cockpit = (props) => {
     setTimeout(() => {
       alert("Saved data to cloud!");
     }, 1000);
+
+    return () => {
+      // Clean up function
+      console.log('[Cockpit.js] useEffect Clean-up function');
+    };
   }, []);
+
+  useEffect(() => {
+    console.log("[Cockpit.js] 2nd useEffect");
+    return () => {
+      console.log('[Cockpit.js] 2nd useEffect Clean-up function');
+    }
+  });
 
   const paragraphClasses = [];
 
