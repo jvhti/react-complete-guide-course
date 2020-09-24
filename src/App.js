@@ -19,7 +19,17 @@ class App extends Component {
         {name: 'Stephanie', age: 27}
       ]
     });
-  }
+  };
+
+  nameChangedHandler = (ev) => {
+    this.setState({
+      persons: [
+        {name: 'Max', age: 28},
+        {name: ev.target.value, age: 29},
+        {name: 'Stephanie', age: 26}
+      ]
+    });
+  };
 
   render() {
     // JSX:
@@ -29,7 +39,7 @@ class App extends Component {
         <p>This is really working!</p>
         <button onClick={() => this.switchNameHandler("Called from App")}>Switch Name</button>
         <Person name={this.state.persons[0].name} age={this.state.persons[0].age} click={this.switchNameHandler.bind(this, "Called from paragraph")}/>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>
+        <Person name={this.state.persons[1].name} age={this.state.persons[1].age} changed={this.nameChangedHandler}>
           My Hobbies: Racing
         </Person>
         <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
