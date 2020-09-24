@@ -36,6 +36,7 @@ const cockpit = (props) => {
         <p className={paragraphClasses.join(' ')}>This is really working!</p>
         <button className={props.showPersons ? classes.Red : null}
                 onClick={props.clicked} ref={toggleButtonRef}>Toggle Persons</button>
+        <button onClick={props.login}>Log in</button>
       </div>);
 };
 
