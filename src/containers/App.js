@@ -22,7 +22,8 @@ class App extends Component {
       {id: 'ghjfd', name: 'Stephanie', age: 26}
     ],
     showPersons: false,
-    showCockpit: true
+    showCockpit: true,
+    changeCounter: 0
   }
 
   static getDerivedStateFromProps(props, state){
@@ -59,7 +60,7 @@ class App extends Component {
     persons.find((p) => p.id === id)
         .name = ev.target.value;
 
-    this.setState({persons});
+    this.setState((prevState) => ({persons, changeCounter: prevState.changeCounter + 1}));
   };
 
   render() {
